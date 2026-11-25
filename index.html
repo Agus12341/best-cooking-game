@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sunny Side Diner - a cozy cooking game</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="sun" aria-hidden="true"></span>
+      <div>
+        <h1>Sunny Side Diner</h1>
+        <p class="tagline">Stack it. Serve it. Beat the lunch rush.</p>
+      </div>
+    </div>
+    <dl class="hud">
+      <div><dt>Score</dt><dd id="score">0</dd></div>
+      <div><dt>Combo</dt><dd id="combo">x1</dd></div>
+      <div><dt>Served</dt><dd id="served">0</dd></div>
+      <div><dt>Shift</dt><dd id="clock">150s</dd></div>
+    </dl>
+  </header>
+
+  <main class="layout">
+    <section class="board-panel" aria-label="Order board">
+      <h2>Order board</h2>
+      <div id="board" class="board"></div>
+      <p class="hint">Click a ticket to cook for it. Its checklist ticks off as you stack.</p>
+    </section>
+
+    <section class="pass-panel" aria-label="The pass">
+      <p id="flash" class="flash info">Welcome to the diner!</p>
+      <div id="plate" class="plate-area"></div>
+      <p id="plate-count" class="plate-count">0 / 8 on the plate</p>
+      <div class="actions">
+        <button id="serve" class="serve" type="button"><span id="serve-label">Serve</span> <kbd>Enter</kbd></button>
+        <button id="undo" class="minor" type="button">Take one back <kbd>⌫</kbd></button>
+        <button id="clear" class="minor" type="button">Scrape plate <kbd>T</kbd></button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="counter-panel" aria-label="Ingredient counter">
+    <h2>Ingredient counter</h2>
+    <div id="counter" class="counter"></div>
+  </footer>
+
+  <div id="overlay" class="overlay">
+    <div class="overlay-card">
+      <h2 id="overlay-title">Sunny Side Diner</h2>
+      <p id="overlay-text">Customers are hungry and their tickets are ticking. Read a ticket, stack its ingredients on the plate with the counter buttons or the number keys, then hit Serve before the patience bar runs dry. Fast, correct serves build a combo multiplier; wrong dishes and walk-outs cost points.</p>
+      <button id="overlay-button" class="serve" type="button">Start the shift</button>
+    </div>
+  </div>
+
+  <script type="module" src="src/main.js"></script>
+</body>
+</html>
